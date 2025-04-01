@@ -6,11 +6,28 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 
 
 const Signup = ({navigation}) => {
+
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+
+
+
+  const handleSignup = () => {
+    if (!email || !password || !confirmPassword || !name || !phone) {
+      Alert.alert('Error', 'Please fill all fields');
+      return;
+    }
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match');
+      return;
+    }  
+  }
+
+
   return (
     <ScrollView style={ styles.container } >
 
@@ -35,6 +52,7 @@ const Signup = ({navigation}) => {
             placeholder="Name"
             value={name} 
             onChangeText={setName}
+            
           />
 
           <Text style={styles.title_text}> Email </Text>
@@ -74,10 +92,11 @@ const Signup = ({navigation}) => {
             keyboardType="phone-pad"
             value={phone} 
             onChangeText={setPhone}
+            maxLength={10}
           />
 
           {/* login button */}
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handleSignup}>
             <Text style={styles.buttonText}>Signup</Text>
           </TouchableOpacity>
           
