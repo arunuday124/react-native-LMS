@@ -15,6 +15,8 @@ const Login = ({navigation}) => {
       return;
     }
     Alert.alert('Login successful!');
+    
+    navigation.navigate('Dashboard');
   };
   
   return (

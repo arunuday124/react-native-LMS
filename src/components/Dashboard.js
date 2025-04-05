@@ -133,6 +133,7 @@ function Dashboard() {
   )
 } 
 
+export default Dashboard
 
 // Styling functions
 const styles = StyleSheet.create({
@@ -147,5 +148,3 @@ const styles = StyleSheet.create({
     elevation: 5
   }
 })
-
-export default Dashboard

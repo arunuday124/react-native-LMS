@@ -11,6 +11,8 @@ const Dashboard = () => {
     <ScrollView style = {styles.container}>
         <View style = {styles.topbar}>
             
+            
+            
         </View>
 
     {/* text after the topbar */}
@@ -23,18 +25,33 @@ const Dashboard = () => {
         <ScrollView horizontal = {true} showsHorizontalScrollIndicator ={ false }>
             <View style = {styles.all_btn}>
 
-                <TouchableOpacity style = {styles.btn}>
-                    <Text style = {styles.btn_text}>Subject1</Text>
+                <TouchableOpacity>
+                    <View style ={ styles.subject}>
+                        <Image
+                            source={require('../assets/reactjs.png')}
+                            style={styles.subject_image}
+                        />
+                        <Text style = {styles.subject_text}>React Js</Text>
+                    </View>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.btn}>
-                    <Text style = {styles.btn_text}>Subject2</Text>
+
+
+
+                <TouchableOpacity>
+                    <View style ={ styles.subject}>
+                        <Image
+                            source={require('../assets/reactnative.png')}
+                            style={styles.subject_image}
+                        />
+                        <Text style = {styles.subject_text}>React Native</Text>
+                    </View>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.btn}>
+                {/* <TouchableOpacity style = {styles.btn}>
                     <Text style = {styles.btn_text}>Subject3</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.btn}>
                     <Text style = {styles.btn_text}>Subject4</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
             </View>
         </ScrollView>
@@ -47,18 +64,91 @@ const Dashboard = () => {
         <ScrollView horizontal = {true} showsHorizontalScrollIndicator ={ false }>
             <View style = {styles.all_btn2}>
 
-            <TouchableOpacity style = {styles.btn2}>
-                    <Text style = {styles.btn_text2}>Course 1 </Text>
+                <TouchableOpacity >
+                    <View style={styles.card}>
+                        <Image
+                            source={require('../assets/webdev.png')}
+                            style={styles.image}
+                        />
+                        <View style={styles.content}>
+                            <Text style={styles.title}>Web Development</Text>
+                                  
+                            <Text style={styles.footer}>April 2025 • by Jone Doe</Text>
+                            <Text style={styles.money}>price : 400 ₹</Text>
+                        </View>
+                    </View>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.btn2}>
-                    <Text style = {styles.btn_text2}>Course 2 </Text>
+
+
+
+
+
+                <TouchableOpacity >
+                    <View style={styles.card}>
+                        <Image
+                            source={require('../assets/data.jpeg')}
+                            style={styles.image}
+                        />
+                        <View style={styles.content}>
+                            <Text style={styles.title}>Web Development</Text>
+                                  
+                            <Text style={styles.footer}>April 2025 • by Jone Doe</Text>
+                            <Text style={styles.money}>price : 400 ₹</Text>
+                        </View>
+                    </View>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.btn2}>
-                    <Text style = {styles.btn_text2}>Course 3 </Text>
+
+
+
+
+                <TouchableOpacity >
+                    <View style={styles.card}>
+                        <Image
+                            source={require('../assets/reactjs.png')}
+                            style={styles.image}
+                        />
+                        <View style={styles.content}>
+                            <Text style={styles.title}>React Js</Text>
+                                  
+                            <Text style={styles.footer}>April 2025 • by Jone Doe</Text>
+                            <Text style={styles.money}>price : 400 ₹</Text>
+                        </View>
+                    </View>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.btn2}>
-                    <Text style = {styles.btn_text2}>Course 4 </Text>
+
+
+                
+                <TouchableOpacity >
+                    <View style={styles.card}>
+                        <Image
+                            source={require('../assets/iosdev.jpeg')}
+                            style={styles.image}
+                        />
+                        <View style={styles.content}>
+                            <Text style={styles.title}>IOS Development</Text>
+                                  
+                            <Text style={styles.footer}>April 2025 • by Jone Doe</Text>
+                            <Text style={styles.money}>price : 400 ₹</Text>
+                        </View>
+                    </View>
                 </TouchableOpacity>
+
+
+                <TouchableOpacity >
+                    <View style={styles.card}>
+                        <Image
+                            source={require('../assets/reactnative.png')}
+                            style={styles.image}
+                        />
+                        <View style={styles.content}>
+                            <Text style={styles.title}>React Native </Text>
+                                  
+                            <Text style={styles.footer}>April 2025 • by Jone Doe</Text>
+                            <Text style={styles.money}>price : 400 ₹</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+
 
             </View>
         </ScrollView>
@@ -73,12 +163,13 @@ export default Dashboard
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#ffefdd', 
+        backgroundColor: '#FFFFFF', 
+        marginBottom: hp('13%'), 
     },
     topbar:{
         height: hp('15%'),
         width: wp('100%'),
-        backgroundColor: 'blue',
+        backgroundColor: '#B17F59',
         
        
         
@@ -120,24 +211,27 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         flexDirection: 'row',
     },
-    btn: {
-        backgroundColor: '#A9B5DF',
-        height: hp('17%'),
-        width: wp('60%'),
+    subject: {
         borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10,
-        marginLeft: 10,
-        marginBottom: 10,
-
+        backgroundColor: '#FBFBFB',
+        overflow: 'hidden',
+        elevation: 3, // shadow for Android
+        shadowColor: '#000', // shadow for iOS
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        margin: hp('1.5%'),
     },
-    btn_text: {
-        color: 'black',
+    subject_image: {
+        height: hp('15%'),
+        width: wp('70%'),
+    },
+    subject_text: {
         fontSize: 20,
         fontWeight: 'bold',
+        marginBottom: 8,
+        marginLeft: 10,
+        marginTop: 5,
     },
-
 
 
     // new course recomendation
@@ -145,23 +239,43 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         flexDirection: 'row',
     },
-    btn2: {
-        backgroundColor: '#C890A7',
-        height: hp('25%'),
-        width: wp('75%'),
+    card: {
         borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10,
-        marginLeft: 10,
-        marginBottom: 10,
-
-    },
-    btn_text2: {
-        color: 'black',
+        backgroundColor: '#FBFBFB',
+        overflow: 'hidden',
+        elevation: 3, // shadow for Android
+        shadowColor: '#000', // shadow for iOS
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        margin: hp('1.5%'),
+        
+      },
+      image: {
+        height: hp('15%'),
+        width: wp('75%'),
+      },
+      content: {
+        padding: 12,
+        
+      },
+      title: {
         fontSize: 20,
         fontWeight: 'bold',
-    },
+        marginBottom: 8,
+      },
+      message: {
+        fontSize: 16,
+        marginBottom: 12,
+      },
+      footer: {
+        fontSize: 14,
+        color: 'gray',
+      },
+      money: {
+        fontSize: 15,
+        marginTop: 5,
+        fontWeight: 'bold',
+      },
     
     
 })
