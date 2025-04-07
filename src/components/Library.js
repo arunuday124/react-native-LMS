@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
 
   },
   topbar:{
-    height: hp('15%'),
+    height: hp('13%'),
     width: wp('100%'),
     backgroundColor: '#B17F59',
     position: 'static'
