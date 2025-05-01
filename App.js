@@ -18,8 +18,8 @@ function App() {
     <NavigationContainer >
       <Stack.Navigator screenOptions={{ headerShown:false }}>
 
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={Signup} />
+        {/* <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} /> */}
         <Stack.Screen name="Dashboard" component={Dashboard}/>
         <Stack.Screen name="Certificate" component={Certificate}/>
         <Stack.Screen name="Prof_update" component={Prof_update}/>

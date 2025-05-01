@@ -22,10 +22,37 @@ const Certificate = () => {
             <View style = {styles.top_text}>
               <Text style = {styles.Certificate_text}>Data Science Certificate</Text>
             </View>
-            <Image
-              source = {require('../assets/crf1.jpg')}
-              style = {styles.Certificate_image}
-            />  
+
+            <TouchableOpacity>
+              <Image
+                source = {require('../assets/crf1.jpg')}
+                style = {styles.Certificate_image}
+              />  
+            </TouchableOpacity>
+
+
+
+            <View style = {styles.top_text}>
+              <Text style = {styles.Certificate_text}>React Js Certificate</Text>
+            </View>
+
+            <TouchableOpacity>
+              <Image
+                source = {require('../assets/crf2.jpg')}
+                style = {styles.Certificate_image}
+              />  
+            </TouchableOpacity>
+
+            <View style = {styles.top_text}>
+              <Text style = {styles.Certificate_text}>Swift Development Certificate</Text>
+            </View>
+
+            <TouchableOpacity>
+              <Image
+                source = {require('../assets/crf4.jpg')}
+                style = {styles.Certificate_image}
+              />  
+            </TouchableOpacity>
 
         </View>
     </ScrollView>
@@ -41,11 +68,16 @@ const styles = StyleSheet.create({
     padding: hp('2%'),
     marginTop:hp('2%'),
     borderRadius:10,
+    marginBottom:hp('3%'),
   },
   top_text:{
     
   },
-  // Certificate_text:{
-  //   fontSize:20,
-  // },
+  Certificate_text:{
+    fontSize:25,
+    fontWeight:'bold',
+    marginTop:hp('2%'),
+    marginLeft:wp('2%'),
+    //color:'#479AEF',
+  },
 })
