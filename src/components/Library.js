@@ -1,13 +1,29 @@
 import React from 'react'
+import { useState } from 'react';
 import { View, Text, ScrollView ,StyleSheet, TextInput, TouchableOpacity, Image  } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const Library = () => {
+  const [query, setQuery] = useState('');
+
   return (
     
     <ScrollView style = {styles.container}>
       <View style = {styles.topbar}>  
-         
+        <View style={styles.search_container}>
+              {/* <Ionicons name="search" size={20} color="#aaa" style={styles.icon} /> */}
+              <Image
+                source={require('../assets/search.png')}
+                style={styles.icon}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Search..."
+                placeholderTextColor="#aaa"
+                value={query}
+                onChangeText={setQuery}
+              />
+            </View>
       </View>
 
       <Text style = {styles.head_text} > All Courses</Text>
@@ -178,6 +194,32 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontWeight: 'bold',
   },
+  search_container: {
+    marginTop: 35,
+    flexDirection: 'row',
+    backgroundColor: '#f0f0f0',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    alignItems: 'center',
+    margin: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 5,
+    elevation: 3, // for Android shadow
+  },
+  icon: {
+    width:20,
+    height:20,
+    marginRight: 8,
+  },
+  input: {
+    flex: 1,
+    fontSize: 16,
+    color: '#333',
+  },
+ 
 
  
 })

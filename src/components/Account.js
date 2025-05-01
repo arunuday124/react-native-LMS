@@ -3,7 +3,8 @@ import { View, Image, Button, StyleSheet, Alert, TouchableOpacity, Text,ScrollVi
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
-const ProfileImagePicker = () => {
+
+const ProfileImagePicker = ({navigation}) => {
   const [photo, setPhoto] = useState(null);
 
   const handleChoosePhoto = () => {
@@ -66,9 +67,28 @@ const ProfileImagePicker = () => {
     );
   };
 
+  const handleLogout = () => {
+    Alert.alert(
+      'Logout',
+      'Are you sure you want to logout?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => navigation.navigate('Login'),
+        },
+      ],
+      { cancelable: false }
+    );
+  }
+
   return (
     <ScrollView>
-          <View style={styles.container}>
+      <View style={styles.container}>
+
       <TouchableOpacity onPress={handleChoosePhoto}>
         <Image
           source={photo ? photo : require('../assets/user.png')} // add a default placeholder image
@@ -101,14 +121,14 @@ const ProfileImagePicker = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity >
           <View style = {styles.stats}>
             <Text style = {styles.top_text}>2</Text>
             <Text style = {styles.buttom_text}>On Going</Text>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Certificate')}>
           <View style = {styles.stats}>
             <Text style = {styles.top_text}>4</Text>
             <Text style = {styles.buttom_text}>Certificate</Text>
@@ -121,7 +141,8 @@ const ProfileImagePicker = () => {
       {/* these are the content after overall stats */}
       <Text style = {styles.text2}>General</Text>
 
-      <TouchableOpacity style = {styles.prof_container}>
+  {/* profile update part */}
+      <TouchableOpacity style = {styles.prof_container} onPress={() => navigation.navigate('Prof_update')} >
         <Image
           source={require('../assets/pen.png')}
           style={{ width: 40, height: 40 }}
@@ -134,7 +155,8 @@ const ProfileImagePicker = () => {
       </TouchableOpacity>
 
 
-      <TouchableOpacity style = {styles.prof_container}>
+  {/* All notification part */}
+      <TouchableOpacity style = {styles.prof_container} onPress={() => navigation.navigate('Notification')}>
         <Image
           source={require('../assets/bell.png')}
           style={{ width: 40, height: 40 }}
@@ -146,8 +168,8 @@ const ProfileImagePicker = () => {
         />
       </TouchableOpacity>
 
-
-      <TouchableOpacity style = {styles.prof_container}>
+  {/* Password change part */}
+      <TouchableOpacity style = {styles.prof_container} onPress={() => navigation.navigate('Password_chg')}>
         <Image
           source={require('../assets/lock.png')}
           style={{ width: 40, height: 40 }}
@@ -166,7 +188,7 @@ const ProfileImagePicker = () => {
 
       <Text style = {styles.text2}>Support</Text>
 
-      <TouchableOpacity style = {styles.prof_container}>
+      <TouchableOpacity style = {styles.prof_container} onPress={() => navigation.navigate('Bugs')}>
         <Image
           source={require('../assets/bugs.png')}
           style={{ width: 40, height: 40 }}
@@ -202,6 +224,11 @@ const ProfileImagePicker = () => {
           source={require('../assets/angle.png')}
           style={{ width: 30, height: 30, marginLeft: 230 }}
         />
+      </TouchableOpacity>
+
+      {/* this is the simple logout button */}
+      <TouchableOpacity style = {styles.logout_container} onPress={handleLogout}>
+        <Text style = {styles.logout_text}>Logout</Text>
       </TouchableOpacity>
       
     </View>
@@ -288,6 +315,22 @@ const styles = StyleSheet.create({
     color: '#183B4E',
     marginLeft: 20,
     marginTop: 5,
+    fontWeight: 'bold',
+  },
+  logout_container:{
+    width: wp('90%'),
+    height: hp('7%'),
+    backgroundColor: 'red',
+    borderRadius: hp('2%'),
+    marginTop: hp('4%'),
+    marginBottom: hp('4%'),
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
+  logout_text:{
+    fontSize: 20,
+    color: '#FFFFFF',
+    textAlign: 'center',
     fontWeight: 'bold',
   },
 });
